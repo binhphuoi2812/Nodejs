@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app.todos">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node/Angular Todos</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="assets/js/main/app.js"></script>
+</head>
+
+<body ng-controller="todoController">
+
+    <div class="container">
+
+        <h1>{{appName}}</h1>
+        <div class="checkbox" ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.isDone"><span ng-class="{strike : todo.isDone}" >{{todo.text}}</span></input>
+        </div>
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+
+                <form >
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg text-center" ng-model="formData.text">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
